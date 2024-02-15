@@ -995,3 +995,10 @@ for entity in sentence.get_spans('ner'):
         from typing import cast
 
         return cast("SequenceTagger", super().load(model_path=model_path))
+
+    @classmethod
+    def load_pos(cls):
+        from pathlib import Path
+        p = Path().joinpath('flair').joinpath('models').joinpath('pos_model.bin')
+        print(p.absolute())
+        return cls.load(p)
